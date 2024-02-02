@@ -1,0 +1,49 @@
+{
+    "name": "@org/web",
+    "version": "1.0.0",
+    "sideEffects": false,
+    "license": "MIT",
+    "exports": {
+        ".": {
+            "import": "./build/index.js",
+            "require": "./build/index.js"
+        },
+        "./express": {
+            "import": "./express.js",
+            "require": "./express.js"
+        }
+    },
+    "scripts": {
+        "clean": "rm -rf node_modules build public/build .turbo",
+        "build": "remix build",
+        "dev": "remix build && run-p \"dev:*\"",
+        "dev:remix": "remix watch",
+        "lint": "eslint --ext .ts,.tsx,.js,.jsx ./app"
+    },
+    "dependencies": {
+        "@org/ui": "workspace:*",
+        "@remix-run/express": "^1.12.0",
+        "@remix-run/node": "^1.12.0",
+        "@remix-run/react": "^1.12.0",
+        "escape-html": "^1.0.3",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "slate": "^0.90.0"
+    },
+    "devDependencies": {
+        "@org/cms": "workspace:*",
+        "@remix-run/dev": "^1.12.0",
+        "@remix-run/eslint-config": "^1.12.0",
+        "@types/escape-html": "^1.0.2",
+        "@types/express": "^4.17.17",
+        "@types/react": "^18.0.27",
+        "@types/react-dom": "^18.0.10",
+        "eslint": "^8.34.0",
+        "nodemon": "^2.0.20",
+        "npm-run-all": "^4.1.5",
+        "typescript": "^4.9.5"
+    },
+    "engines": {
+        "node": ">=16"
+    }
+}
