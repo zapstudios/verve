@@ -16,7 +16,7 @@
   type BlockKeys = keyof typeof Blocks;
 
   // Extract props
-  const { layout, posts, projects } = $$props;
+  const { layout } = $$props;
 
   /**
    * Get the component from the Blocks object (svelte components)
