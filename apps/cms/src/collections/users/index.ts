@@ -18,7 +18,7 @@ export const users: CollectionConfig = {
     create: anyone,
     update: adminsAndUser,
     delete: admins,
-    admin: ({ req: { user } }) => checkRole(["admin"], user),
+    // admin: ({ req: { user } }) => checkRole(["admin"], user),
   },
   hooks: {
     afterChange: [loginAfterCreate],

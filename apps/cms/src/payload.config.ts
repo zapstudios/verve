@@ -21,7 +21,10 @@ const generateTitle: GenerateTitle = () => {
   return "My Website";
 };
 
-const clientUrls = ["http://localhost:5173", process.env.PAYLOAD_PUBLIC_SERVER_URL];
+const clientUrls = [
+  "http://localhost:5173",
+  ...String(process.env.PAYLOAD_PUBLIC_SERVER_URL).split(","),
+];
 
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
@@ -38,10 +41,10 @@ export default buildConfig({
   collections: [pages, categories, collections, media, users],
   typescript: {
     declare: false,
-    outputFile: path.resolve(__dirname, "../../../packages/payload/types.ts"),
+    outputFile: path.resolve(__dirname, "./payload-types.ts"),
   },
   graphQL: {
-    schemaOutputFile: path.resolve(__dirname, "../../../packages/payload/schema.graphql"),
+    schemaOutputFile: path.resolve(__dirname, "./payload-schema.graphql"),
   },
   plugins: [
     payloadCloud(),

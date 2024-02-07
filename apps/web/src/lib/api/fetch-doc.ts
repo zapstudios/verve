@@ -28,6 +28,13 @@ const queryMap: Record<CollectionKey, { query: string; key: string }> = {
   },
 };
 
+interface FetchDocArgs {
+  collection: CollectionKey;
+  slug?: string;
+  id?: string;
+  draft?: boolean;
+}
+
 /**
  * Fetches a document from the GraphQL API.
  * @template T
@@ -39,14 +46,11 @@ const queryMap: Record<CollectionKey, { query: string; key: string }> = {
  * @returns {Promise<T>} - A promise that resolves to the fetched document.
  * @throws Will throw an error if the collection is not found or if there are errors in the GraphQL response.
  */
-export const fetchDoc = async <T>(args: {
-  collection: CollectionKey;
-  slug?: string;
-  id?: string;
-  draft?: boolean;
-}): Promise<T> => {
-  const { collection, slug, draft } = args || {};
-
+export const fetchDoc = async <T>({
+  collection,
+  slug = "home",
+  draft,
+}: FetchDocArgs): Promise<T> => {
   if (!queryMap[collection]) throw new Error(`Collection ${collection} not found`);
 
   let token: string | undefined;
@@ -66,7 +70,7 @@ export const fetchDoc = async <T>(args: {
     body: JSON.stringify({
       query: queryMap[collection].query,
       variables: {
-        slug,
+        slug: !slug.length ? "home" : slug,
         draft,
         length: 3,
       },

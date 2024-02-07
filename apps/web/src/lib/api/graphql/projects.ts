@@ -1,18 +1,4 @@
-import {
-  SUBHEADER,
-  TEASER,
-  GROUP,
-  CLIENT_LIST,
-  STATS,
-  PORTFOLIO_ARCHIVE,
-  JOURNAL_ARCHIVE,
-  SELECTED_PROJECTS,
-  SERVICES_GRID,
-  SLOT_MACHINE,
-  FORM_BLOCK
-} from './blocks';
-import { LINK_FIELDS } from './link';
-import { MEDIA } from './media';
+
 import { META } from './meta';
 
 export const PROJECTS = `
@@ -53,16 +39,7 @@ export const PROJECT = `
           }
         }
         layout {
-          ${TEASER}
-          ${SUBHEADER}
-          ${STATS}
-          ${GROUP}
-          ${PORTFOLIO_ARCHIVE}
-          ${JOURNAL_ARCHIVE}
-          ${SELECTED_PROJECTS}
-          ${SERVICES_GRID}
-          ${SLOT_MACHINE}
-          ${FORM_BLOCK}
+          
         }
         ${META}
       }

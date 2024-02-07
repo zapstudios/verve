@@ -1,4 +1,4 @@
-import { SCROLLWHEEL } from "./blocks";
+import { WELCOME } from "./blocks";
 import { META } from "./meta";
 
 export const PAGES = `
@@ -18,7 +18,7 @@ export const PAGE = `
         id
         title
         layout {
-          ${SCROLLWHEEL}
+          ${WELCOME}
         }
         ${META}
       }

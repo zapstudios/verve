@@ -1,5 +1,5 @@
+import { SlugField } from "@nouance/payload-better-fields-plugin";
 import type { CollectionConfig } from "payload/types";
-import { slugField } from "../../fields/slug";
 
 export const collections: CollectionConfig = {
   slug: "collection",
@@ -19,6 +19,17 @@ export const collections: CollectionConfig = {
       label: "Title",
       type: "text",
     },
+    ...SlugField(
+      {
+        name: "slug",
+        admin: {
+          position: "sidebar",
+        },
+      },
+      {
+        useFields: ["title"],
+      }
+    ),
     {
       name: "medias",
       label: "Medias",
@@ -33,6 +44,5 @@ export const collections: CollectionConfig = {
         },
       ],
     },
-    slugField(),
   ],
 };

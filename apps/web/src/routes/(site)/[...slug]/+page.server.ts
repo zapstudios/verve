@@ -1,4 +1,4 @@
-import type { Page } from "@repo/payload/types";
+import type { Page } from "cms/types";
 import { fetchDoc } from "$lib/api";
 
 export const load = async ({ params }) => {
@@ -9,7 +9,7 @@ export const load = async ({ params }) => {
   try {
     page = await fetchDoc<Page>({ collection: "pages", slug });
   } catch (error) {
-    console.log("error", error);
+    console.log("error");
   }
 
   return { page };

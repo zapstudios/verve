@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Media } from "@repo/payload/types";
+  import type { Media } from "cms/types";
 
   const {
     className,

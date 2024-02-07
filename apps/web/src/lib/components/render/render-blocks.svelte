@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Page } from "@repo/payload/types";
+  import type { Page } from "cms/types";
   import * as Blocks from "$lib/components/blocks";
 
   // Extract the block type from the layout array
@@ -12,11 +12,7 @@
   type BlockKeys = keyof typeof Blocks;
 
   // Extract props
-  const { layout, posts, projects } = $$props;
-
-  // These blocks need access to the posts and projects
-  const includePostsInProps = ["journalArchive", "group"];
-  const includeProjectsInProps = ["portfolioArchive", "group"];
+  const { layout } = $$props;
 
   /**
    * Get the component from the Blocks object (svelte components)

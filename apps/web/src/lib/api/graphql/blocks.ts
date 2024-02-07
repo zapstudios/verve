@@ -1,8 +1,6 @@
-import { CATEGORIES } from "./categories";
-
-export const SCROLLWHEEL = `
-...on ScrollWheel {
-    blockType
-    ${CATEGORIES}
-}
+export const WELCOME = `
+    ...on Welcome {
+        blockType
+        message
+    }
 `;

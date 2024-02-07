@@ -1,4 +1,4 @@
-import type {} from "@repo/payload/types";
+import type {} from "cms/types";
 import { fetchGlobals } from "$lib/api";
 import { error } from "@sveltejs/kit";
 

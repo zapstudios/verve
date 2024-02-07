@@ -4,6 +4,13 @@
   "version": "1.0.0",
   "main": "dist/server.js",
   "license": "MIT",
+  "exports": {
+    "./types": {
+      "types": "./src/payload-types.ts",
+      "require": "./src/payload-types.ts",
+      "import": "./src/payload-types.ts"
+    }
+  },
   "scripts": {
     "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
     "build:payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload build",
@@ -16,6 +23,7 @@
     "payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload"
   },
   "dependencies": {
+    "@nouance/payload-better-fields-plugin": "^1.2.0",
     "@payloadcms/bundler-webpack": "^1.0.0",
     "@payloadcms/db-mongodb": "^1.0.0",
     "@payloadcms/plugin-cloud": "^3.0.0",
@@ -23,16 +31,14 @@
     "@payloadcms/plugin-nested-docs": "^1.0.11",
     "@payloadcms/plugin-seo": "^2.0.0",
     "@payloadcms/richtext-slate": "^1.0.0",
-    "@repo/blocks": "workspace:*",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "payload": "^2.0.0",
-    "slate": "0.101.5",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "slate": "0.101.5"
   },
   "devDependencies": {
-    "@repo/payload": "workspace:*",
     "@types/express": "^4.17.9",
     "copyfiles": "^2.4.1",
     "nodemon": "^2.0.6",

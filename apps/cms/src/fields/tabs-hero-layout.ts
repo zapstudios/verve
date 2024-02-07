@@ -1,6 +1,6 @@
 import { Field } from "payload/types";
 import { hero } from "./hero";
-import { ScrollWheelConfig } from "@repo/blocks/config";
+import { welcome } from "../blocks/welcome";
 
 /**
  * Import all blocks configs from the blocks/config package
@@ -11,16 +11,16 @@ import { ScrollWheelConfig } from "@repo/blocks/config";
  * run `pnpm generate:block` in the root dir to create a new block
  */
 
-const blocks = [ScrollWheelConfig];
+const blocks = [welcome];
 
 export const tabsHeroLayout: Field = {
   type: "tabs",
   tabs: [
-    // {
-    //   label: "Hero",
-    //   name: "hero",
-    //   fields: [hero],
-    // },
+    {
+      label: "Hero",
+      name: "hero",
+      fields: [hero],
+    },
     {
       label: "Content",
       fields: [

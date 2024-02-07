@@ -6,6 +6,8 @@ import { revalidatePage } from "./hooks/revalidatePage";
 import { populatePublishedAt } from "../../hooks/populatePublishedAt";
 import { slugField } from "../../fields/slug";
 import { tabsHeroLayout } from "../../fields/tabs-hero-layout";
+import { anyone } from "../../access/anyone";
+import { SlugField } from "@nouance/payload-better-fields-plugin";
 
 export const pages: CollectionConfig = {
   slug: "pages",
@@ -28,9 +30,9 @@ export const pages: CollectionConfig = {
   },
   access: {
     read: adminsOrPublished,
-    update: admins,
-    create: admins,
-    delete: admins,
+    update: anyone,
+    create: anyone,
+    delete: anyone,
   },
   fields: [
     {
@@ -38,6 +40,17 @@ export const pages: CollectionConfig = {
       type: "text",
       required: true,
     },
+    ...SlugField(
+      {
+        name: "slug",
+        admin: {
+          position: "sidebar",
+        },
+      },
+      {
+        useFields: ["title"],
+      }
+    ),
     {
       name: "publishedAt",
       type: "date",
@@ -46,6 +59,5 @@ export const pages: CollectionConfig = {
       },
     },
     tabsHeroLayout,
-    slugField(),
   ],
 };

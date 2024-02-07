@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Media, Page } from "@repo/payload/types";
+  import type { Media, Page } from "cms/types";
 
   const { description, image, title } = $$props as Page["meta"];
 

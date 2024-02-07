@@ -1,71 +1,15 @@
 <script lang="ts">
   import "../app.pcss";
-  import "@repo/blocks/css";
 
-  import { onMount } from "svelte";
-  import { browser } from "$app/environment";
-
-  import Lenis from "@studio-freight/lenis";
-
-  import { lenisStore as lenis, setLenisStore } from "$lib/stores/lenis";
-  import { useFrame } from "$lib/lifecycle-functions/use-frame";
-  import { page } from "$app/stores";
   import { fly } from "svelte/transition";
   import { Navbar } from "$lib/components/layout";
+  import LenisProvider from "$lib/components/render/lenis-provider.svelte";
 
   export let data;
-  let hash = "";
-
-  $: if (browser && $lenis && hash) {
-    const target = document.querySelector(hash);
-    $lenis.scrollTo(target, { offset: 0, force: true, lock: true });
-  }
-
-  onMount(() => {
-    window.history.scrollRestoration = "manual";
-    window.scrollTo(0, 0);
-
-    const lenisInstance = new Lenis();
-    setLenisStore(lenisInstance);
-
-    function onLinkClick(e: MouseEvent) {
-      e.preventDefault();
-
-      const node = e.currentTarget;
-      const nodeHash = (node as HTMLLinkElement).href.split("#").pop();
-
-      hash = "#" + nodeHash;
-
-      setTimeout(() => {
-        window.location.hash = hash;
-      }, 0);
-    }
-
-    const internalLinks: Element[] = [...document.querySelectorAll("[href]")].filter((node) =>
-      (node as HTMLLinkElement).href.includes($page.url.pathname + "#")
-    );
-
-    internalLinks.forEach((node) => {
-      (node as HTMLLinkElement).addEventListener("click", onLinkClick, false);
-    });
-
-    return () => {
-      internalLinks.forEach((node) => {
-        (node as HTMLLinkElement).removeEventListener("click", onLinkClick, false);
-      });
-
-      $lenis?.destroy();
-    };
-  });
-
-  useFrame((time) => {
-    $lenis?.raf(time);
-  });
-
-  $: console.log($lenis);
 </script>
 
 <Navbar pathname={data.propsFromLayout.pathname} />
+<LenisProvider />
 
 {#key data.propsFromLayout.pathname}
   <div in:fly={{ duration: 600, delay: 300 }} out:fly={{ duration: 300 }}>
