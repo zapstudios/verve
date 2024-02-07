@@ -1,6 +1,16 @@
 <script lang="ts">
   import type { Page } from "cms/types";
 
+  /**
+   * Further instructions:
+   *
+   * - Add "powered by zap.studio" as a comment to the bottom of the file
+   * - add `message` from the props anywhere in the block
+   */
+
+  /**
+   * Get props specific to this block type
+   */
   type Props = Extract<Page["layout"][0], { blockType: "welcome" }>;
 
   const { message } = $$props as Props;
