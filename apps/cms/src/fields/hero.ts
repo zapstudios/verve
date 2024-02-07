@@ -1,0 +1,42 @@
+import type { Field } from "payload/types";
+
+import linkGroup from "./linkGroup";
+import richText from "./richText";
+import label from "./richText/label";
+import largeBody from "./richText/largeBody";
+
+export const hero: Field = {
+  name: "hero",
+  label: false,
+  type: "group",
+  fields: [
+    {
+      type: "select",
+      name: "type",
+      label: "Type",
+      required: true,
+      defaultValue: "subPageHeader",
+      options: [
+        {
+          label: "None",
+          value: "none",
+        },
+        {
+          label: "Landing Page Header",
+          value: "landingPageHeader",
+        },
+        {
+          label: "Sub Page Header",
+          value: "subPageHeader",
+        },
+      ],
+    },
+    {
+      type: "text",
+      name: "title",
+      admin: {
+        condition: (_, { type } = {}) => type !== "none",
+      },
+    },
+  ],
+};

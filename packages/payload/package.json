@@ -1,0 +1,12 @@
+{
+  "name": "@repo/payload",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./types": "./types.ts",
+    "./graphql": "./schema.graphql"
+  },
+  "devDependencies": {
+    "@repo/typescript": "workspace:*"
+  }
+}
