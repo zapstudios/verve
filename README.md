@@ -7,10 +7,8 @@
 ![](https://img.shields.io/badge/payloadcms-black?style=for-the-badge&logo=payloadcms)
 ![](https://img.shields.io/badge/sveltekit-black?style=for-the-badge&logo=svelte)
 
-<h1 style="border: none">
-    <span style="color: #f43f5e">verve</span>
-    <span style="opacity: 0.2"> :: </span>
-    starter kit
+<h1 style="border: none !important;">
+    verve :: starter kit
 </h1>
 
 Pre-configured Starter Kit with PayloadCMS and SvelteKit. <br />
