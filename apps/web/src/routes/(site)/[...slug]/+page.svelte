@@ -7,7 +7,7 @@
   const { layout, meta } = data.page;
 </script>
 
-<Seo {meta} />
+<Seo {...meta} />
 
 <PageSpacer>
   <RenderBlocks {layout} />
