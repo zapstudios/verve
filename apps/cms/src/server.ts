@@ -9,7 +9,14 @@ app.get("/", (_, res) => {
   res.redirect("/admin");
 });
 
+const throwWhenMissingEnv = (env: string) => {
+  if (!process.env[env]) throw new Error(`Missing environment variable: ${env}`);
+};
+
 const start = async () => {
+  throwWhenMissingEnv("DATABASE_URI");
+  throwWhenMissingEnv("PAYLOAD_SECRET");
+
   // Initialize Payload
   await payload.init({
     secret: process.env.PAYLOAD_SECRET,
