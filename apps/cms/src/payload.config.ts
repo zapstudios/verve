@@ -13,9 +13,7 @@ import { media } from "./collections/media";
 import { pages } from "./collections/pages";
 import { users } from "./collections/users";
 
-const generateTitle: GenerateTitle = () => {
-  return "My Website";
-};
+const generateTitle: GenerateTitle = ({ doc: { title } }: any) => title.value;
 
 const clientUrls = ["http://localhost:5173", ...String(process.env.PAYLOAD_PUBLIC_SERVER_URL).split(",")];
 
