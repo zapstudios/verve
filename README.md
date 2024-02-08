@@ -38,14 +38,11 @@ Designed to be a starting point for new projects, with a few common features alr
 
 ## Features
 
-- **SvelteKit** - A framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing.
-- **PayloadCMS** - A headless CMS that's easy to use, powerful, and flexible. It's designed to be a developer's best friend.
-- **TurboRepo** - A monorepo tool that makes it easy to manage multiple packages and projects with a single configuration.
-- **PNPM** - A fast, disk space efficient package manager that uses hard links and symlinks to save space.
-- **TailwindCSS** - A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
-- **PostCSS** - A tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more.
-- **ESLint** - A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
-- **Prettier** - An opinionated code formatter that enforces a consistent code style across your entire codebase.
+- Already set up with PayloadCMS and SvelteKit.
+- Pre-configured with a few common features.
+- Ready to build out pages and blocks.
+- Easy to customize and extend.
+- Optimized for rapid development and deployment.
 
 <br />
 <br />
