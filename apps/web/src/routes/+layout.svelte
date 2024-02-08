@@ -1,10 +1,9 @@
 <script lang="ts">
   import "../app.pcss";
 
-  import { fly } from "svelte/transition";
-  import { Navbar } from "$lib/components/layout";
-  import LenisProvider from "$lib/components/render/lenis-provider.svelte";
-  import { SITE_SETTINGS } from "../constants/settings";
+  import { SITE_SETTINGS } from "$lib/constants/settings";
+  import { LenisProvider } from "$lib/components/render";
+  import { RouteTransition } from "$lib/components/layout";
 
   export let data;
 </script>
@@ -14,10 +13,6 @@
   <LenisProvider />
 {/if}
 
-{#key data.propsFromLayout.pathname}
-  <div in:fly={{ duration: 600, delay: 300 }} out:fly={{ duration: 300 }}>
-    <main class="min-h-screen">
-      <slot />
-    </main>
-  </div>
-{/key}
+<RouteTransition {...data}>
+  <slot />
+</RouteTransition>
