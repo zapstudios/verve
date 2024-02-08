@@ -41,20 +41,22 @@
       />
     </div>
   </div>
-  <div class="absolute bottom-0 left-0 w-screen py-12 flex items-center justify-center gap-x-12">
-    <div class="relative w-fit">
-      <div class="rounded-2xl bg-gradient-to-b from-[#141414] to-[#202020] z-10 relative p-[2px]">
-        <div class="h-full w-full bg-[#0b0b0a] rounded-[14px] flex flex-col items-start gap-4 px-6 py-4 pt-3">
-          <span class="uppercase text-xs text-neutral-700">powered by</span>
-          <img src="/logo_sec_full_dark.svg" alt="zap.studio Logo" class="h-4" />
+  <div class="absolute bottom-0 left-0 w-screen py-12 grid place-items-center">
+    <div class="grid grid-cols-2 gap-x-12">
+      <div class="relative w-full">
+        <div class="rounded-2xl bg-gradient-to-b from-[#141414] to-[#202020] z-10 relative p-[2px]">
+          <div class="h-full w-full bg-[#0b0b0a] rounded-[14px] flex flex-col items-start gap-4 px-6 py-4 pt-3">
+            <span class="uppercase text-xs text-neutral-700">powered by</span>
+            <img src="/logo_sec_full_dark.svg" alt="zap.studio Logo" class="h-4" />
+          </div>
         </div>
       </div>
-    </div>
-    <div class="relative w-fit">
-      <div class="rounded-2xl bg-gradient-to-b from-[#141414] to-[#202020] z-10 relative p-[2px]">
-        <div class="h-full w-full bg-[#0b0b0a] rounded-[14px] flex flex-col items-start gap-4 px-6 py-4 pt-3">
-          <span class="uppercase text-xs text-neutral-700">message</span>
-          <span class="text-md leading-[16px]">{message}</span>
+      <div class="relative w-full">
+        <div class="rounded-2xl bg-gradient-to-b from-[#141414] to-[#202020] z-10 relative p-[2px]">
+          <div class="h-full w-full bg-[#0b0b0a] rounded-[14px] flex flex-col items-start gap-4 px-6 py-4 pt-3">
+            <span class="uppercase text-xs text-neutral-700">message</span>
+            <span class="text-md leading-[16px]">{message}</span>
+          </div>
         </div>
       </div>
     </div>
