@@ -3,10 +3,10 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "dotenv -- turbo dev",
+    "dev": "FORCE_COLOR=1 dotenv -- turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "generate:block": "turbo gen block"
+    "generate:types": "cd apps/cms && pnpm generate:types"
   },
   "devDependencies": {
     "@repo/eslint": "workspace:*",
