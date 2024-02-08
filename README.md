@@ -14,6 +14,12 @@ Designed to be a starting point for new projects, with a few common features alr
 
 </div>
 
+<br />
+<br />
+<br />
+<br />
+<br />
+
 ### Table of Contents
 
 - [Features](#features)
@@ -27,6 +33,9 @@ Designed to be a starting point for new projects, with a few common features alr
 - [Deployment](#deployment)
 - [License](#license)
 
+<br />
+<br />
+
 ## Features
 
 - **SvelteKit** - A framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing.
@@ -38,6 +47,9 @@ Designed to be a starting point for new projects, with a few common features alr
 - **ESLint** - A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 - **Prettier** - An opinionated code formatter that enforces a consistent code style across your entire codebase.
 
+<br />
+<br />
+
 ## Getting Started
 
 To initiate the project setup, clone or fork this repository. Then, install the necessary dependencies and set up the environment as follows:
@@ -48,9 +60,14 @@ cd verve
 pnpm install
 ```
 
+<br />
+<br />
+
 ## Configuration
 
 Initial configuration is straightforward. Follow the steps below to prepare your development environment:
+
+<br />
 
 ### PayloadCMS
 
@@ -60,11 +77,16 @@ Set up your PayloadCMS project by configuring the necessary environment variable
 - `PAYLOAD_SECRET` - A secret key for encrypting and decrypting data.
 - `PAYLOAD_PUBLIC_SERVER_URL` - The public URL for your PayloadCMS server. (default is `http://localhost:3000`)
 
+<br />
+
 ### SvelteKit
 
 Similar to PayloadCMS, configure SvelteKit's environment variables found in the `.env` file. Rename `.env.example` in `apps/web` to `.env` and input your details:
 
 - `PAYLOAD_PUBLIC_SERVER_URL` - The public URL for your PayloadCMS server. (default is `http://localhost:3000`)
+
+<br />
+<br />
 
 ## Development
 
@@ -76,13 +98,19 @@ pnpm dev
 
 This command launches the development server for the CMS accessible at `http://localhost:3000` and the site at `http://localhost:5173`.
 
+<br />
+
 ### Workflows
 
-### Adding a new block
+<br />
+
+#### Adding a new block
 
 To introduce a new block into the CMS:
 
 1. In `apps/cms/src/blocks`, create a file named `text-block.ts`.
+   <br />
+
 2. Populate the file with the following template code:
 
 ```typescript
@@ -100,6 +128,8 @@ export const textBlock: Block = {
 };
 ```
 
+<br />
+
 3. Include this block in your chosen layout. For demonstration, add it to `tabs-hero-layout`.
 
 ```typescript
@@ -110,7 +140,11 @@ import { textBlock } from "../blocks/text-block";
 const blocks = [, /* other blocks */ textBlock];
 ```
 
+<br />
+
 4. Create a corresponding Svelte component in `apps/web/src/lib/components/blocks`, for example, `text-block.svelte`.
+   <br />
+
 5. Implement the block component as required. Example:
 
 ```svelte
@@ -130,6 +164,8 @@ const blocks = [, /* other blocks */ textBlock];
 </div>
 ```
 
+<br />
+
 6. Register the new block in the Barrel file `apps/web/src/lib/components/blocks/index.ts`:
 
 ```typescript
@@ -137,6 +173,8 @@ const blocks = [, /* other blocks */ textBlock];
 
 export { default as TextBlock } from "./text-block.svelte";
 ```
+
+<br />
 
 7. Define the GraphQL query for the block in `apps/web/src/lib/api/graphql/blocks.ts` and incorporate it into the page layout query within `apps/web/src/lib/api/graphql/pages.ts`.
 
@@ -170,11 +208,19 @@ export const PAGE = `
 `;
 ```
 
+<br />
+
 8. Your block is now ready for use within the CMS. Add a new page,
+
+<br />
+<br />
 
 ## Deployment
 
 Deployment instructions will be provided soon. Stay tuned for updates.
+
+<br />
+<br />
 
 ## License
 
