@@ -1,14 +1,11 @@
 import { PAGES } from "$lib/api/graphql/pages";
-import { POSTS } from "$lib/api/graphql/posts";
-import { PROJECTS } from "$lib/api/graphql/projects";
-import { CATEGORIES } from "./graphql/categories";
 import { GRAPHQL_API_URL } from "./shared";
 
 /**
  * Type for valid collection keys.
- * @typedef {'pages' | 'posts' | 'projects'} CollectionKey
+ * @typedef {'pages'} CollectionKey
  */
-type CollectionKey = "pages" | "categories";
+type CollectionKey = "pages";
 
 /**
  * Record mapping collection keys to their respective GraphQL queries and keys.
@@ -18,10 +15,6 @@ const queryMap: Record<CollectionKey, { query: string; key: string }> = {
   pages: {
     query: PAGES,
     key: "Pages",
-  },
-  categories: {
-    query: CATEGORIES,
-    key: "Categories",
   },
 };
 
@@ -37,7 +30,7 @@ const queryMap: Record<CollectionKey, { query: string; key: string }> = {
 export const fetchDocs = async <T>(
   collection: CollectionKey,
   draft?: boolean,
-  variables?: Record<string, unknown>
+  variables?: Record<string, unknown>,
 ): Promise<T[]> => {
   if (!queryMap[collection]) throw new Error(`Collection ${collection} not found`);
 

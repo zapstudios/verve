@@ -19,7 +19,7 @@ export const tabsHeroLayout: Field = {
     {
       label: "Hero",
       name: "hero",
-      fields: [hero],
+      fields: [...hero],
     },
     {
       label: "Content",

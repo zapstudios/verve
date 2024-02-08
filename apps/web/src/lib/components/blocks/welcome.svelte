@@ -55,7 +55,13 @@
         <div class="rounded-2xl bg-gradient-to-b from-[#141414] to-[#202020] z-10 relative p-[2px]">
           <div class="h-full w-full bg-[#0b0b0a] rounded-[14px] flex flex-col items-start gap-4 px-6 py-4 pt-3">
             <span class="uppercase text-xs text-neutral-700">message</span>
-            <span class="text-md leading-[16px]">{message}</span>
+            <span class="text-md leading-[16px]">
+              {#if message}
+                {message}
+              {:else}
+                Welcome to Verve
+              {/if}
+            </span>
           </div>
         </div>
       </div>

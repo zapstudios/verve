@@ -1,14 +1,12 @@
 import { PAGE } from "$lib/api/graphql/pages";
-import { POST } from "$lib/api/graphql/posts";
-import { PROJECT } from "$lib/api/graphql/projects";
 import { GRAPHQL_API_URL } from "./shared";
 
 /**
  * Represents valid keys for collections.
- * @typedef {'pages' | 'posts' | 'projects'} CollectionKey
+ * @typedef {'pages'} CollectionKey
  */
 
-type CollectionKey = "pages" | "posts" | "projects";
+type CollectionKey = "pages";
 
 /**
  * Mapping of collection keys to their GraphQL queries and keys for data access.
@@ -17,14 +15,6 @@ const queryMap: Record<CollectionKey, { query: string; key: string }> = {
   pages: {
     query: PAGE,
     key: "Pages",
-  },
-  posts: {
-    query: POST,
-    key: "Posts",
-  },
-  projects: {
-    query: PROJECT,
-    key: "Projects",
   },
 };
 
@@ -46,11 +36,7 @@ interface FetchDocArgs {
  * @returns {Promise<T>} - A promise that resolves to the fetched document.
  * @throws Will throw an error if the collection is not found or if there are errors in the GraphQL response.
  */
-export const fetchDoc = async <T>({
-  collection,
-  slug = "home",
-  draft,
-}: FetchDocArgs): Promise<T> => {
+export const fetchDoc = async <T>({ collection, slug = "home", draft }: FetchDocArgs): Promise<T> => {
   if (!queryMap[collection]) throw new Error(`Collection ${collection} not found`);
 
   let token: string | undefined;

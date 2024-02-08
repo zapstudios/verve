@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { Page } from '$lib/types/payload';
-  import * as Heros from '$lib/components/heros';
+  import type { Page } from "cms/types";
+  import * as Heros from "$lib/components/heros";
 
   // Extract the hero type from the page
-  type BlockTypes = Page['hero']['type'];
+  type BlockTypes = Page["hero"]["type"];
 
   // Get the keys of the Heros object
   type BlockKeys = keyof typeof Heros;
@@ -25,8 +25,6 @@
   };
 </script>
 
-{#if heroType === 'none'}
-  <div class="h-[calc(120px*2)] max-sm:h-[calc(80px*2)]" />
-{:else}
+{#if heroType !== "none"}
   <svelte:component this={getComponent(heroType)} {...restProps} />
 {/if}

@@ -17,6 +17,9 @@ export const PAGE = `
       docs {
         id
         title
+        hero {
+          type
+        }
         layout {
           ${WELCOME}
         }
