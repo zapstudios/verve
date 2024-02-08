@@ -9,8 +9,6 @@
 export interface Config {
   collections: {
     pages: Page;
-    categories: Category;
-    collection: Collection;
     media: Media;
     users: User;
     'payload-preferences': PayloadPreference;
@@ -21,12 +19,12 @@ export interface Config {
 export interface Page {
   id: string;
   title: string;
+  slug?: string | null;
+  editSlug?: boolean | null;
   publishedAt?: string | null;
   hero: {
-    hero: {
-      type: 'none' | 'landingPageHeader' | 'subPageHeader';
-      title?: string | null;
-    };
+    type: 'none' | 'landingPageHeader' | 'subPageHeader';
+    title?: string | null;
   };
   layout: {
     message?: string | null;
@@ -34,7 +32,6 @@ export interface Page {
     blockName?: string | null;
     blockType: 'welcome';
   }[];
-  slug?: string | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -55,36 +52,6 @@ export interface Media {
   filesize?: number | null;
   width?: number | null;
   height?: number | null;
-}
-export interface Category {
-  id: string;
-  title: string;
-  image: string | Media;
-  parent?: (string | null) | Category;
-  breadcrumbs?:
-    | {
-        doc?: (string | null) | Category;
-        url?: string | null;
-        label?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-export interface Collection {
-  id: string;
-  title?: string | null;
-  medias?:
-    | {
-        media: string | Media;
-        id?: string | null;
-      }[]
-    | null;
-  slug?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
 }
 export interface User {
   id: string;
