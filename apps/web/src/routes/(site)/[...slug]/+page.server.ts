@@ -1,5 +1,6 @@
 import type { Page } from "cms/types";
 import { fetchDoc } from "$lib/api";
+import { logger } from "$lib/utils/logger.js";
 
 export const load = async ({ params }) => {
   const { slug } = params;
@@ -9,7 +10,7 @@ export const load = async ({ params }) => {
   try {
     page = await fetchDoc<Page>({ collection: "pages", slug });
   } catch (error) {
-    console.log("error");
+    logger.error({ message: "Failed to fetch page", error });
   }
 
   return { page };
